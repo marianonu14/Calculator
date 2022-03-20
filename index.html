@@ -9,31 +9,34 @@
 </head>
 <body>
     <div class="contendor-principal">
-        <div class="screen"></div>
+        <div class="screen" id="screen">
+            <div class="valor" id="valor-anterior"></div>
+            <div class="valor" id="valor-actual"></div>
+        </div>
         <div class="btn-primario">
-            <button class="btn btn-cl">Clear</button>
-            <button class="btn btn-cl">Delete</button>
+            <button class="btn btn-cl" id="clear">Clear</button>
+            <button class="btn btn-cl" id="delete">Delete</button>
         </div>
         <div class="btn-secundario">
-            <button class="btn">7</button>
-            <button class="btn">8</button>
-            <button class="btn">9</button>
-            <button class="btn">÷</button>
+            <button class="btn number">7</button>
+            <button class="btn number">8</button>
+            <button class="btn number">9</button>
+            <button class="btn operator">÷</button>
 
-            <button class="btn">4</button>
-            <button class="btn">5</button>
-            <button class="btn">6</button>
-            <button class="btn">×</button>
+            <button class="btn number">4</button>
+            <button class="btn number">5</button>
+            <button class="btn number">6</button>
+            <button class="btn operator">×</button>
 
-            <button class="btn">1</button>
-            <button class="btn">2</button>
-            <button class="btn">3</button>
-            <button class="btn">-</button>
+            <button class="btn number">1</button>
+            <button class="btn number">2</button>
+            <button class="btn number">3</button>
+            <button class="btn operator">-</button>
 
-            <button class="btn">.</button>
-            <button class="btn">0</button>
-            <button class="btn">=</button>
-            <button class="btn">+</button>
+            <button class="btn point">.</button>
+            <button class="btn number">0</button>
+            <button class="btn equal">=</button>
+            <button class="btn operator">+</button>
         </div>
     </div>
     <footer> 
@@ -42,7 +45,7 @@
             <script>
               document.write(new Date().getFullYear())
             </script>
-            Mariano Nunez
+            Mariano Nuñez
           </p>
     </footer>
     <script src="app.js"></script>
