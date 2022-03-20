@@ -1,44 +1,82 @@
-const btnNumber = document.querySelectorAll('.btn.number');
-const btnOperator = document.querySelectorAll('.btn.operator');
-const btnEqual = document.querySelectorAll('.btn.equal');
-const btnPoint = document.querySelectorAll('.btn.point');
-const btnClear = document.querySelectorAll('#clear');
-const btnDelete = document.querySelectorAll('#delete');
-const valorAnterior = document.querySelectorAll('#valor-anterior');
-const valorActual = document.querySelectorAll('#valor-actual');
+const btn = document.querySelectorAll('.btn.num');
+const operator = document.querySelectorAll('.btn.operator');
+const equal = document.querySelector('.btn.equal');
+const point = document.querySelector('.btn.point');
+const screenPrevious = document.querySelector('#valor-anterior');
+const screenCurrent = document.querySelector('#valor-actual');
+const clear = document.querySelector('#clear');
+const reset = document.querySelector('#delete');
 
-valorAnterior[0].innerText = ['Hola'];
-valorActual[0].innerText = ['Gola'];
+let firstValue;
+let secondValue;
+let operatorValue;
 
-btnNumber.forEach(function(number){
-    number.addEventListener('click', e =>{
-        newNumber = parseInt(e.target.outerText);
-        valorActual[0].innerText = newNumber; 
-    })  
-});
+screenPrevious.innerText = "";
+screenCurrent.innerText = "";
 
-btnOperator.forEach(function(operator){
-    operator.addEventListener('click', () =>{
-       console.log('Operador');
-    })  
-});
+btn.forEach(function(button){
+    button.addEventListener('click', e =>{
+        screenCurrent.innerText += e.target.innerText;
+        }); 
+    }); 
 
-btnEqual.forEach(function(equal){
-    equal.addEventListener('click', () =>{
-       console.log('Equal');
-    })  
-});
+operator.forEach(function(operator){
+    operator.addEventListener('click', e =>{
+        screenPrevious.innerText = screenCurrent.innerText
+        screenCurrent.innerText = ''
+        operatorValue = e.target.innerText
+        screenCurrent.innerText = e.target.innerText
+        }); 
+    });  
 
-btnClear.forEach(function(clear){
-    clear.addEventListener('click', () =>{
-        valorActual[0].innerText = [];
-    })  
-});
+equal.addEventListener('click', () =>{
+    firstValue = screenPrevious.innerText
+    secondValue = screenCurrent.innerText.slice(1)
+    operation(parseFloat(firstValue),parseFloat(secondValue),operatorValue);
+}); 
 
-btnDelete.forEach(function(dele){
-    dele.addEventListener('click', () =>{
-        valorActual[0].innerText = [];
-        valorAnterior[0].innerText = [];
-    })  
-});
+point.addEventListener('click', e =>{
+    screenCurrent.innerText += e.target.innerText;
+}); 
 
+clear.addEventListener('click', () => screenCurrent.innerText = ""); 
+
+reset.addEventListener('click', () =>{
+    resetScreen();
+    resetValue();
+}); 
+
+
+function operation(a,b,op) {
+ if (op === "+"){
+    screenPrevious.innerText = "";
+    screenCurrent.innerText = a + b;
+    resetValue();
+ } else if (op === "-"){
+    screenPrevious.innerText = "";
+    screenCurrent.innerText = a - b;
+    resetValue();
+ } else if (op === "/"){
+    screenPrevious.innerText = "";
+    screenCurrent.innerText = a / b;
+    resetValue();
+ } else if (op === "*"){
+    screenPrevious.innerText = "";
+    screenCurrent.innerText = a * b;
+    resetValue();
+ } else {
+    screenPrevious.innerText = "";
+    screenCurrent.innerText = "Error";
+ }
+};
+
+function resetValue() {
+    firstValue
+    secondValue
+    operatorValue
+};
+
+function resetScreen() {
+    screenPrevious.innerText = "";
+    screenCurrent.innerText = "";
+};
