@@ -15,13 +15,13 @@ body {
     --fuente-principal: 'Lato', sans-serif;
     --color-primario: #150050;
     --color-secundario: #3F0071;
-    --color-terciario: #5f48c4;
+    --color-terciario: #a89dda;
     --negro: #000000;
 }
 
 .contendor-principal{
     width: 400px;
-    margin: 40px auto;
+    margin: 30px auto;
     padding: 20px;
     background-color: var(--negro);
     border-radius: 10px;
@@ -56,6 +56,7 @@ body {
 
 .btn-cl {
     width: 80%;
+    background-color: #f3b814;
 }
 
 .btn-secundario {
@@ -76,10 +77,13 @@ body {
     background-color: #9c979e;
 }
 
+.btn-cl:hover {
+    background-color: #b68a10;
+}
+
 footer {
     font-size: 20px;
     font-family: var(--fuente-principal);
     color: aliceblue;
     text-align: center;
-    margin-top: 0;
 }

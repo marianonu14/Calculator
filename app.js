@@ -16,7 +16,9 @@ screenCurrent.innerText = "";
 
 btn.forEach(function(button){
     button.addEventListener('click', e =>{
-        screenCurrent.innerText += e.target.innerText;
+        if (screenCurrent.innerText.length < 15) {
+            screenCurrent.innerText += e.target.innerText;
+        }
         }); 
     }); 
 
@@ -36,7 +38,9 @@ equal.addEventListener('click', () =>{
 }); 
 
 point.addEventListener('click', e =>{
-    screenCurrent.innerText += e.target.innerText;
+    if (!screenCurrent.innerText.includes(".")){
+        screenCurrent.innerText += e.target.innerText;
+    }
 }); 
 
 clear.addEventListener('click', () => screenCurrent.innerText = ""); 
